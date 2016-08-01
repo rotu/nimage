@@ -17,18 +17,6 @@ Image tags indicate Nim versions. The latest stable version is additionally tagg
 
 Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images include the Nim compiler and [Nimble](https://github.com/nim-lang/nimble) package manager. Slim images include only the compiler. Onbuild images are meant to be used in Dockerfiles for Nimble packages because they invoke `nimble build` on build.
 
-Get the latest stable image:
-
-```shell
-$ docker pull nimlang/nim
-```
-
-The latest development version:
-
-```shell
-$ docker pull nimlang/nim:devel
-```
-
 ## Regular
 
 | Tag                | Dockerfile                                                                            |
@@ -61,6 +49,20 @@ $ docker pull nimlang/nim:devel
 
 
 # Using the Images
+
+## Get the Latest Stable or Delevopment Version
+
+Stable:
+
+```shell
+$ docker pull nimlang/nim
+```
+
+Development:
+
+```shell
+$ docker pull nimlang/nim:devel
+```
 
 ## Compiling a Single File
 
