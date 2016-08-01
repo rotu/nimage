@@ -14,21 +14,53 @@ Beneath a nice infix/indentation based syntax with a powerful (AST based, hygien
 
 Image tags indicate Nim versions. The latest stable version is additionally tagged with `latest`, the latest development version—with `devel`.
 
-Images come in two flavors: *regular* and *slim*. Regular images include the Nim compiler and [Nimble](https://github.com/nim-lang/nimble) package manager. Slim images include only the compiler.
+Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images include the Nim compiler and [Nimble](https://github.com/nim-lang/nimble) package manager. Slim images include only the compiler. Onbuild images are meant to be used in Dockerfiles for Nimble packages because they invoke `nimble build` on build.
 
-| Tag                | Dockerfile                                                                                      |
-| ------------------ | ----------------------------------------------------------------------------------------------- |
-| `0.14.3`, `devel`  | [0.14.3/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/Dockerfile)           |
-| `0.14.3-slim`      | [0.14.3/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/slim/Dockerfile) |
-| `0.14.2`, `latest` | [0.14.2/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/Dockerfile)           |
-| `0.14.2-slim`      | [0.14.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/slim/Dockerfile) |
-| `0.14.0`, `latest` | [0.14.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/Dockerfile)           |
-| `0.14.0-slim`      | [0.14.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/slim/Dockerfile) |
-| `0.13.0`, `latest` | [0.13.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.13.0/Dockerfile)           |
-| `0.13.0-slim`      | [0.13.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.13.0/slim/Dockerfile) |
-| `0.12.0`, `latest` | [0.12.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/Dockerfile)           |
-| `0.12.0-slim`      | [0.12.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/slim/Dockerfile) |
-| `0.11.2`, `latest` | [0.11.2/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/Dockerfile)           |
-| `0.11.2-slim`      | [0.11.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/slim/Dockerfile) |
-| `0.11.0`, `latest` | [0.11.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/Dockerfile)           |
-| `0.11.0-slim`      | [0.11.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/slim/Dockerfile) |
+| Tag                    | Dockerfile                                                                                      |
+| ---------------------- | ----------------------------------------------------------------------------------------------- |
+| `0.14.3`, `devel`      | [0.14.3/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/Dockerfile)           |
+| `0.14.3-slim`          | [0.14.3/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/slim/Dockerfile) |
+| **`0.14.2`, `latest`** | [0.14.2/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/Dockerfile)           |
+| `0.14.2-slim`          | [0.14.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/slim/Dockerfile) |
+| `0.14.0`, `latest`     | [0.14.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/Dockerfile)           |
+| `0.14.0-slim`          | [0.14.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/slim/Dockerfile) |
+| `0.13.0`, `latest`     | [0.13.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.13.0/Dockerfile)           |
+| `0.13.0-slim`          | [0.13.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.13.0/slim/Dockerfile) |
+| `0.12.0`, `latest`     | [0.12.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/Dockerfile)           |
+| `0.12.0-slim`          | [0.12.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/slim/Dockerfile) |
+| `0.11.2`, `latest`     | [0.11.2/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/Dockerfile)           |
+| `0.11.2-slim`          | [0.11.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/slim/Dockerfile) |
+| `0.11.0`, `latest`     | [0.11.0/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/Dockerfile)           |
+| `0.11.0-slim`          | [0.11.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/slim/Dockerfile) |
+
+
+# Using the Images
+
+## Compiling a Single File
+
+```bash
+$ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim nim c -r your-nim-file.nim
+```
+
+## Building a Nimble Package
+
+Create a Dockerfile in the package root:
+
+```dockerfile
+FROM nimlang/nim:0.14.2-onbuild
+ENTRYPOINT ["./your-compiled-app-binary"]
+```
+
+Build your image:
+
+```bash
+$ docker build -t my-nim-app .
+```
+
+When an `onbuild` image is built, the package content is copied to the container working directory and the package is built with `nimble build`.
+
+Run the compiled binary:
+
+```bash
+$ docker run -it --rm --name my-running-app my-nim-app
+```
