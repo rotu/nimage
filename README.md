@@ -64,16 +64,9 @@ FROM nimlang/nim:0.14.2-onbuild
 ENTRYPOINT ["./your-compiled-app-binary"]
 ```
 
-Build your image:
+Build your image and run the compiled binary:
 
 ```shell
 $ docker build -t my-nim-app .
-```
-
-When an `onbuild` image is built, the package content is copied to the container working directory and the package is built with `nimble build`.
-
-Run the compiled binary:
-
-```shell
 $ docker run -it --rm --name my-running-app my-nim-app
 ```
