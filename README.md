@@ -9,6 +9,7 @@ Beneath a nice infix/indentation based syntax with a powerful (AST based, hygien
 - [Official site](http://nim-lang.org)
 - [Tutorials](http://nim-lang.org/learn.html)
 - [Documentation](http://nim-lang.org/documentation.html)
+- [Report an issue with images](https://github.com/moigagoo/nimage/issues/new)
 
 # Tags and Flavors
 
