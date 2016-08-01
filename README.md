@@ -38,7 +38,7 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 
 ## Compiling a Single File
 
-```bash
+```shell
 $ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim nim c -r your-nim-file.nim
 ```
 
@@ -53,7 +53,7 @@ ENTRYPOINT ["./your-compiled-app-binary"]
 
 Build your image:
 
-```bash
+```shell
 $ docker build -t my-nim-app .
 ```
 
@@ -61,6 +61,6 @@ When an `onbuild` image is built, the package content is copied to the container
 
 Run the compiled binary:
 
-```bash
+```shell
 $ docker run -it --rm --name my-running-app my-nim-app
 ```
