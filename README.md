@@ -43,6 +43,9 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 | Tag                    | Dockerfile                                                                                      |
 | ---------------------- | ----------------------------------------------------------------------------------------------- |
 | `0.14.3-alpine`          | [0.14.3/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/Dockerfile) |
+| `0.12.0-alpine`          | [0.12.0/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/alpine/Dockerfile) |
+| `0.11.2-alpine`          | [0.11.2/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/alpine/Dockerfile) |
+| `0.11.0-alpine`          | [0.11.0/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/alpine/Dockerfile) |
 
 
 ## Onbuild
