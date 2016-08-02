@@ -6,4 +6,3 @@ RUN git clone git://github.com/nim-lang/Nim.git nim;\
     cd csources; sh build.sh;\
     bin/nim c koch; ./koch boot -d:release;\
     ln -s `pwd`/bin/nim /bin/nim
-
