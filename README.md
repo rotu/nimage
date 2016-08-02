@@ -38,6 +38,12 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 | `0.11.2-slim`          | [0.11.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/slim/Dockerfile) |
 | `0.11.0-slim`          | [0.11.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/slim/Dockerfile) |
 
+## Alpine
+| Tag                    | Dockerfile                                                                                      |
+| ---------------------- | ----------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine`          | [0.14.3/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/Dockerfile) |
+
+
 ## Onbuild
 
 | Tag                    | Dockerfile                                                                                            |
@@ -68,6 +74,12 @@ $ docker pull nimlang/nim:devel
 
 ```shell
 $ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim nim c -r your-nim-file.nim
+```
+
+## Compiling a **Static** Single File
+
+```shell
+$ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim:0.14.3-alpine nim c --passL:-static your-nim-file.nim
 ```
 
 ## Building a Nimble Package
