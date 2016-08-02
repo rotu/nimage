@@ -30,6 +30,7 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 
 | Tag                    | Dockerfile                                                                                      |
 | ---------------------- | ----------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine-slim`          | [0.14.3/alpine/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/slim/Dockerfile) |
 | `0.14.3-slim`          | [0.14.3/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/slim/Dockerfile) |
 | `0.14.2-slim`          | [0.14.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/slim/Dockerfile) |
 | `0.14.0-slim`          | [0.14.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/slim/Dockerfile) |
@@ -48,6 +49,7 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 
 | Tag                    | Dockerfile                                                                                            |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine-onbuild`       | [0.14.3/alpine/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/onbuild/Dockerfile) |
 | `0.14.3-onbuild`       | [0.14.3/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/onbuild/Dockerfile) |
 | `0.14.2-onbuild`       | [0.14.2/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/onbuild/Dockerfile) |
 | `0.14.0-onbuild`       | [0.14.0/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/onbuild/Dockerfile) |
