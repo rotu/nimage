@@ -32,6 +32,7 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 
 | Tag                    | Dockerfile                                                                                      |
 | ---------------------- | ----------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine-slim`          | [0.14.3/alpine/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/slim/Dockerfile) |
 | `0.14.3-slim`          | [0.14.3/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/slim/Dockerfile) |
 | `0.14.2-slim`          | [0.14.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/slim/Dockerfile) |
 | `0.14.0-slim`          | [0.14.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/slim/Dockerfile) |
@@ -40,10 +41,20 @@ Images come in three flavors: *regular*, *slim*, and *onbuild*. Regular images i
 | `0.11.2-slim`          | [0.11.2/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/slim/Dockerfile) |
 | `0.11.0-slim`          | [0.11.0/slim/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/slim/Dockerfile) |
 
+## Alpine
+| Tag                    | Dockerfile                                                                                      |
+| ---------------------- | ----------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine`          | [0.14.3/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/Dockerfile) |
+| `0.12.0-alpine`          | [0.12.0/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.12.0/alpine/Dockerfile) |
+| `0.11.2-alpine`          | [0.11.2/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.2/alpine/Dockerfile) |
+| `0.11.0-alpine`          | [0.11.0/alpine/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.11.0/alpine/Dockerfile) |
+
+
 ## Onbuild
 
 | Tag                    | Dockerfile                                                                                            |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| `0.14.3-alpine-onbuild`       | [0.14.3/alpine/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/alpine/onbuild/Dockerfile) |
 | `0.14.3-onbuild`       | [0.14.3/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.3/onbuild/Dockerfile) |
 | `0.14.2-onbuild`       | [0.14.2/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.2/onbuild/Dockerfile) |
 | `0.14.0-onbuild`       | [0.14.0/onbuild/Dockerfile](https://github.com/moigagoo/nimage/blob/master/0.14.0/onbuild/Dockerfile) |
@@ -70,6 +81,12 @@ $ docker pull nimlang/nim:devel
 
 ```shell
 $ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim nim c -r your-nim-file.nim
+```
+
+## Compiling a **Static** Single File
+
+```shell
+$ docker run -it --rm --name my-running-app -v `pwd`:/usr/src/myapp -w /usr/src/myapp nimlang/nim:0.14.3-alpine nim c --passL:-static your-nim-file.nim
 ```
 
 ## Building a Nimble Package
