@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/moigagoo/nimage.svg?branch=master)](https://travis-ci.org/moigagoo/nimage)
+
 # Welcome to Nim
 
 ![King's crown](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-withBackground.png)
