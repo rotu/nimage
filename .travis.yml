@@ -55,12 +55,14 @@ script:
   - docker push nimlang/nim:0.14.0
   - docker push nimlang/nim:0.14.2
   - docker push nimlang/nim:0.14.3
+  - docker push nimlang/nim:latest
+  - docker push nimlang/nim:devel
   - docker push nimlang/nim:0.13.0-alpine
   - docker push nimlang/nim:0.14.0-alpine
   - docker push nimlang/nim:0.14.2-alpine
   - docker push nimlang/nim:0.14.3-alpine
-  - docker push nimlang/nim:latest
-  - docker push nimlang/nim:devel
+  - docker push nimlang/nim:latest-alpine
+  - docker push nimlang/nim:devel-alpine
   - docker push nimlang/nim:0.13.0-onbuild
   - docker push nimlang/nim:0.14.0-onbuild
   - docker push nimlang/nim:0.14.2-onbuild
