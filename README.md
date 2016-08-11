@@ -1,7 +1,6 @@
 # Welcome to Nim
 
 [![Build Status](https://travis-ci.org/moigagoo/nimage.svg?branch=master)](https://travis-ci.org/moigagoo/nimage)
-
 [![Join the chat at https://gitter.im/moigagoo/nimage](https://badges.gitter.im/moigagoo/nimage.svg)](https://gitter.im/moigagoo/nimage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![King's crown](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-withBackground.png)
