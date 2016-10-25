@@ -11,6 +11,7 @@ before_script:
   - docker build -t nimlang/nim:0.14.0-slim 0.14.0/slim
   - docker build -t nimlang/nim:0.14.2-slim 0.14.2/slim
   - docker build -t nimlang/nim:0.14.3-slim 0.14.3/slim
+  - docker build -t nimlang/nim:0.15.0-slim 0.15.0/slim
   - docker build -t nimlang/nim:0.11.0-alpine-slim 0.11.0/alpine/slim
   - docker build -t nimlang/nim:0.11.2-alpine-slim 0.11.2/alpine/slim
   - docker build -t nimlang/nim:0.12.0-alpine-slim 0.12.0/alpine/slim
@@ -18,22 +19,27 @@ before_script:
   - docker build -t nimlang/nim:0.14.0-alpine-slim 0.14.0/alpine/slim
   - docker build -t nimlang/nim:0.14.2-alpine-slim 0.14.2/alpine/slim
   - docker build -t nimlang/nim:0.14.3-alpine-slim 0.14.3/alpine/slim
+  - docker build -t nimlang/nim:0.15.0-alpine-slim 0.15.0/alpine/slim
   - docker build -t nimlang/nim:0.13.0 0.13.0
   - docker build -t nimlang/nim:0.14.0 0.14.0
-  - docker build -t nimlang/nim:0.14.2 -t nimlang/nim:latest 0.14.2
+  - docker build -t nimlang/nim:0.15.0 0.15.0
+  - docker build -t nimlang/nim:0.15.0 -t nimlang/nim:latest 0.15.0
   - docker build -t nimlang/nim:0.14.3 -t nimlang/nim:devel 0.14.3
   - docker build -t nimlang/nim:0.13.0-alpine 0.13.0/alpine
   - docker build -t nimlang/nim:0.14.0-alpine 0.14.0/alpine
   - docker build -t nimlang/nim:0.14.2-alpine -t nimlang/nim:latest-alpine 0.14.2/alpine
   - docker build -t nimlang/nim:0.14.3-alpine -t nimlang/nim:devel-alpine 0.14.3/alpine
+  - docker build -t nimlang/nim:0.15.0-alpine -t nimlang/nim:devel-alpine 0.15.0/alpine
   - docker build -t nimlang/nim:0.13.0-onbuild 0.13.0/onbuild
   - docker build -t nimlang/nim:0.14.0-onbuild 0.14.0/onbuild
   - docker build -t nimlang/nim:0.14.2-onbuild 0.14.2/onbuild
   - docker build -t nimlang/nim:0.14.3-onbuild 0.14.3/onbuild
+  - docker build -t nimlang/nim:0.15.0-onbuild 0.15.0/onbuild
   - docker build -t nimlang/nim:0.13.0-alpine-onbuild 0.13.0/alpine/onbuild
   - docker build -t nimlang/nim:0.14.0-alpine-onbuild 0.14.0/alpine/onbuild
   - docker build -t nimlang/nim:0.14.2-alpine-onbuild 0.14.2/alpine/onbuild
   - docker build -t nimlang/nim:0.14.3-alpine-onbuild 0.14.3/alpine/onbuild
+  - docker build -t nimlang/nim:0.15.0-alpine-onbuild 0.15.0/alpine/onbuild
 
 script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
@@ -44,6 +50,7 @@ script:
   - docker push nimlang/nim:0.14.0-slim
   - docker push nimlang/nim:0.14.2-slim
   - docker push nimlang/nim:0.14.3-slim
+  - docker push nimlang/nim:0.15.0-slim
   - docker push nimlang/nim:0.11.0-alpine-slim
   - docker push nimlang/nim:0.11.2-alpine-slim
   - docker push nimlang/nim:0.12.0-alpine-slim
@@ -51,23 +58,28 @@ script:
   - docker push nimlang/nim:0.14.0-alpine-slim
   - docker push nimlang/nim:0.14.2-alpine-slim
   - docker push nimlang/nim:0.14.3-alpine-slim
+  - docker push nimlang/nim:0.15.0-alpine-slim
   - docker push nimlang/nim:0.13.0
   - docker push nimlang/nim:0.14.0
   - docker push nimlang/nim:0.14.2
   - docker push nimlang/nim:0.14.3
+  - docker push nimlang/nim:0.15.0
   - docker push nimlang/nim:latest
   - docker push nimlang/nim:devel
   - docker push nimlang/nim:0.13.0-alpine
   - docker push nimlang/nim:0.14.0-alpine
   - docker push nimlang/nim:0.14.2-alpine
   - docker push nimlang/nim:0.14.3-alpine
+  - docker push nimlang/nim:0.15.0-alpine
   - docker push nimlang/nim:latest-alpine
   - docker push nimlang/nim:devel-alpine
   - docker push nimlang/nim:0.13.0-onbuild
   - docker push nimlang/nim:0.14.0-onbuild
   - docker push nimlang/nim:0.14.2-onbuild
   - docker push nimlang/nim:0.14.3-onbuild
+  - docker push nimlang/nim:0.15.0-onbuild
   - docker push nimlang/nim:0.13.0-alpine-onbuild
   - docker push nimlang/nim:0.14.0-alpine-onbuild
   - docker push nimlang/nim:0.14.2-alpine-onbuild
   - docker push nimlang/nim:0.14.3-alpine-onbuild
+  - docker push nimlang/nim:0.15.0-alpine-onbuild
