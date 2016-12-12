@@ -27,7 +27,7 @@ before_script:
   - docker build -t nimlang/nim:0.14.3 0.14.3
   - docker build -t nimlang/nim:0.15.0 0.15.0
   - docker build -t nimlang/nim:0.15.2 -t nimlang/nim:latest 0.15.2
-  - docker build -t nimlang/nim:devel -t devel
+  - docker build -t nimlang/nim:devel devel
 
 # Onbuild
   - docker build -t nimlang/nim:0.13.0-onbuild 0.13.0/onbuild
