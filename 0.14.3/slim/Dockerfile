@@ -1,8 +1,8 @@
 FROM buildpack-deps:jessie
 MAINTAINER Konstantin Molchanov <moigagoo@live.com>
 
-RUN git clone git://github.com/nim-lang/Nim.git nim;\
-    cd nim; git clone --depth 1 git://github.com/nim-lang/csources;\
-    cd csources; sh build.sh;\
-    cd ..; bin/nim c koch; ./koch boot -d:release;\
+RUN wget http://nim-lang.org/download/nim-0.14.3.tar.xz;\
+    tar xf nim-0.14.3.tar.xz; rm nim-0.14.3.tar.xz;\
+    mv nim-0.14.3 nim;\
+    cd nim; sh build.sh;\
     ln -s `pwd`/bin/nim /bin/nim

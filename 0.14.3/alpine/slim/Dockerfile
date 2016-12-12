@@ -1,9 +1,8 @@
 FROM alpine
 MAINTAINER Guilherme Thomazi Bonicontro <thomazi@linux.com>
 
-RUN apk add --no-cache g++ git
-RUN git clone git://github.com/nim-lang/Nim.git nim;\
-    cd nim; git clone --depth 1 git://github.com/nim-lang/csources;\
-    cd csources; sh build.sh; chmod +x ../bin/nim;\
-    cd /nim; bin/nim c koch; ./koch boot -d:release;\
+RUN apk add --no-cache g++ curl tar xz
+RUN mkdir -p /nim;\
+    curl -sL "http://nim-lang.org/download/nim-0.14.3.tar.xz" | tar xJ --strip-components=1 -C /nim;\
+    cd /nim; sh build.sh;\
     ln -s `pwd`/bin/nim /bin/nim
