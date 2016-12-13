@@ -1,5 +1,6 @@
 FROM nimlang/nim:0.14.2-slim
-MAINTAINER Konstantin Molchanov <moigagoo@live.com>
+LABEL authors="Konstantin Molchanov <moigagoo@live.com>,\
+               Guilherme Thomazi Bonicontro <thomazi@linux.com>"
 
 RUN git clone https://github.com/nim-lang/nimble.git;\
     cd nimble; nim -d:release c -r src/nimble -y install;\

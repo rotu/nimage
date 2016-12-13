@@ -1,5 +1,6 @@
 FROM buildpack-deps:jessie
-MAINTAINER Konstantin Molchanov <moigagoo@live.com>
+LABEL authors="Konstantin Molchanov <moigagoo@live.com>,\
+               Guilherme Thomazi Bonicontro <thomazi@linux.com>"
 
 RUN wget http://nim-lang.org/download/nim-0.15.2.tar.xz;\
     tar xf nim-0.15.2.tar.xz; rm nim-0.15.2.tar.xz;\

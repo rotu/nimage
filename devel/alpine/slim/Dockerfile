@@ -1,5 +1,6 @@
 FROM alpine
-MAINTAINER Guilherme Thomazi Bonicontro <thomazi@linux.com>
+LABEL authors="Konstantin Molchanov <moigagoo@live.com>,\
+               Guilherme Thomazi Bonicontro <thomazi@linux.com>"
 
 RUN apk add --no-cache g++ git
 RUN git clone git://github.com/nim-lang/Nim.git nim;\

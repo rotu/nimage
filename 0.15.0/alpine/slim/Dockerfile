@@ -1,5 +1,6 @@
 FROM alpine
-MAINTAINER Guilherme Thomazi Bonicontro <thomazi@linux.com>
+LABEL authors="Konstantin Molchanov <moigagoo@live.com>,\
+               Guilherme Thomazi Bonicontro <thomazi@linux.com>"
 
 RUN apk add --no-cache g++ curl tar xz
 RUN mkdir -p /nim;\
