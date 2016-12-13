@@ -68,6 +68,7 @@ before_script:
   - docker build -t nimlang/nim:0.14.0-alpine-onbuild 0.14.0/alpine/onbuild
   - docker build -t nimlang/nim:0.14.2-alpine-onbuild 0.14.2/alpine/onbuild
   - docker build -t nimlang/nim:0.14.3-alpine-onbuild 0.14.3/alpine/onbuild
+  - docker build -t nimlang/nim:0.15.0-alpine-onbuild 0.15.0/alpine/onbuild
   - docker build -t nimlang/nim:0.15.2-alpine-onbuild -t nimlang/nim:latest-alpine-onbuild 0.15.2/alpine/onbuild
   - docker build -t nimlang/nim:devel-alpine-onbuild devel/alpine/onbuild
 
