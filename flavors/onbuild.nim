@@ -1,11 +1,11 @@
 #? stdtmpl
-#proc any*(version: string,
+#proc any*(version, base: string,
 #          labels: openarray[(string, string)] = {:}): string =
 #  result = ""
-FROM nimlang/nim:$version-regular
-#for label, value in labels.items:
+FROM nimlang/nim:$version-$base-regular
+#  for label, value in labels.items:
 LABEL $label="$value"
-#end for
+#  end for
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
