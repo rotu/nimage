@@ -9,5 +9,4 @@ branches:
 
 script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim build.nim
-  - ./build
+  - ./makeall
