@@ -34,6 +34,7 @@ proc getTags(version, base: tuple[key: string, val: JsonNode],
       result.add "latest"
 
     result.add(["latest", flavor].join("-"))
+    result.add flavor
 
 proc generateDockerfile(version, base, flavor: string,
                         labels: openarray[(string, string)]) =
