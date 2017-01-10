@@ -11,8 +11,20 @@ proc getTags(version, base: tuple[key: string, val: JsonNode],
 
   result.add([version.key, base.key, flavor].join("-"))
 
+  if flavor == "regular":
+    result.add([version.key, base.key].join("-"))
+
+    if version.val.isLatest:
+      result.add(["latest", base.key].join("-"))
+
+    if base.val.isDefault:
+      result.add version.key
+
   if version.val.isLatest:
     result.add(["latest", base.key, flavor].join("-"))
+
+    if flavor == "regular":
+      result.add base.key
 
   if base.val.isDefault:
     result.add([version.key, flavor].join("-"))
@@ -32,14 +44,19 @@ proc generateDockerfile(version, base, flavor: string,
   of "slim":
     case base
     of "ubuntu":
-      content = slim.ubuntu(version, base, labels)
+      content = slim.ubuntu(version, labels)
     of "alpine":
       content = slim.alpine(version, labels)
     else: discard
   of "regular":
-    content = regular.any(version, labels)
+    case base
+    of "ubuntu":
+      content = regular.ubuntu(version, labels)
+    of "alpine":
+      content = regular.alpine(version, labels)
+    else: discard
   of "onbuild":
-    content = onbuild.any(version, labels)
+    content = onbuild.any(version, base, labels)
   else: discard
 
   writeFile("Dockerfile", content)
@@ -79,12 +96,12 @@ when isMainModule:
       for flavor in flavors:
         let tags = getTags(version, base, flavor)
 
-        echo "Building $#. " % tags[0]
+        echo "Building $#... " % tags[0]
         generateDockerfile(version.key, base.key, flavor, labels)
         buildImage(tags, tagPrefix)
         removeFile("Dockerfile")
         echo "Done!"
 
-        echo "Pushing $#." % tags[0]
+        echo "Pushing $#..." % tags[0]
         pushImage(tags, tagPrefix)
         echo "Done!"
