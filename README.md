@@ -24,7 +24,7 @@ So, all together:
 
 nimlang/nim = nimlang/nim:latest = nimlang/nim:0.16.0 = nimlang/nim:0.16.0-ubuntu =nimlang/nim:latest-ubuntu = nimlang/nim:0.16.0-regular = nimlang/nim:latest-regular = nimlang/nim:0.16.0-ubuntu-regular = nimlang/nim:latest-ubuntu-regular
 
-Phew, that's one ling list! Fortunately, unless you need a specific version of Nim, you'll probably need just `nimlang/nim`, `nimlang/nim:alpine`, or `nimlang/nim:onbuild`.
+Phew, that's one long list! Fortunately, unless you need a specific version of Nim, you'll probably need just `nimlang/nim`, `nimlang/nim:alpine`, or `nimlang/nim:onbuild`.
 
 ## Bases
 
