@@ -17,7 +17,12 @@ RUN wget http://nim-lang.org/download/nim-${version}.tar.xz; \
 #proc alpine*(version: string,
 #             labels: openarray[(string, string)] = {:}): string =
 #  result = ""
-FROM alpine
+# # These are known to have supported ssl library versions
+#  if version >= "0.17.0":
+FROM alpine:3.5
+#  else:
+FROM alpine:3.4
+#  end if
 #  for label, value in labels.items:
 LABEL $label="$value"
 #  end for
