@@ -1,4 +1,4 @@
-import os, strutils, json
+import os, parseopt, strutils, json
 import flavors / [slim, regular, onbuild]
 
 proc isDefault(props: JsonNode): bool = props.getOrDefault("default").getBVal
@@ -92,17 +92,25 @@ when isMainModule:
     bases = config["bases"]
     versions = config["versions"]
 
+  var targets: seq[string] = @[]
+
+  for kind, key, val in getopt():
+    case kind
+    of cmdArgument: targets.add key
+    else: discard
+
   for version in versions.pairs:
-    for base in bases.pairs:
-      for flavor in flavors:
-        let tags = getTags(version, base, flavor)
+    if len(targets) == 0 or version.key in targets:
+      for base in bases.pairs:
+        for flavor in flavors:
+          let tags = getTags(version, base, flavor)
 
-        echo "Building $#... " % tags[0]
-        generateDockerfile(version.key, base.key, flavor, labels)
-        buildImage(tags, tagPrefix)
-        removeFile("Dockerfile")
-        echo "Done!"
+          echo "Building $#... " % tags[0]
+          generateDockerfile(version.key, base.key, flavor, labels)
+          buildImage(tags, tagPrefix)
+          removeFile("Dockerfile")
+          echo "Done!"
 
-        echo "Pushing $#..." % tags[0]
-        pushImage(tags, tagPrefix)
-        echo "Done!"
+          echo "Pushing $#..." % tags[0]
+          pushImage(tags, tagPrefix)
+          echo "Done!"
