@@ -11,5 +11,9 @@
   "bases": {
     "ubuntu": {"default": true},
     "alpine": {}
+  },
+  "labels": {
+    "authors":
+      "Konstantin Molchanov <moigagoo@live.com>, Guilherme Thomazi Bonicontro <thomazi@linux.com>"
   }
 }

@@ -1,9 +1,9 @@
 import os, strutils, json
 import flavors / [slim, regular, onbuild]
 
-proc isDefault(props: JsonNode): bool = props.getOrDefault("default").getBVal
+proc isDefault(props: JsonNode): bool = props.getOrDefault("default").getBool()
 
-proc isLatest(props: JsonNode): bool = props.getOrDefault("latest").getBVal
+proc isLatest(props: JsonNode): bool = props.getOrDefault("latest").getBool()
 
 proc getTags(version, base: tuple[key: string, val: JsonNode],
              flavor: string): seq[string] =
@@ -81,14 +81,12 @@ proc pushImage(tags: openarray[string], tagPrefix: string) =
 
 when isMainModule:
   const
-    authors = """Konstantin Molchanov <moigagoo@live.com>, \
-                 Guilherme Thomazi Bonicontro <thomazi@linux.com>"""
-    labels = {"authors": authors}
     tagPrefix = "nimlang/nim"
     flavors = ["slim", "regular", "onbuild"]
 
   let
     config = parseFile("config.json")
+    labels = {"authors": config["authors"]}
     bases = config["bases"]
     versions = config["versions"]
 
