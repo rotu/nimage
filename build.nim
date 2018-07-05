@@ -79,6 +79,21 @@ proc pushImage(tags: openarray[string], tagPrefix: string) =
     let tagLine = "$#:$#" % [tagPrefix, tag]
     discard execShellCmd dockerPushCommand % tagLine
 
+proc testImage(image: string, flavor: string) =
+  let succeeded = case flavor
+  of "slim":
+    let cmd = "docker run --rm $# nim --version" % image
+    execShellCmd(cmd) == 0
+  of "regular", "onbuild":
+    # Check that nimble at least launches
+    let cmd = "docker run --rm $# nimble --version" % image
+    execShellCmd(cmd) == 0
+  else: true
+
+  if not succeeded:
+    echo "Failed the image test"
+    quit QuitFailure
+
 when isMainModule:
   const
     authors = """Konstantin Molchanov <moigagoo@live.com>, \
@@ -110,6 +125,16 @@ when isMainModule:
           buildImage(tags, tagPrefix)
           removeFile("Dockerfile")
           echo "Done!"
+
+          # Anything before this is broken and too old to fix.
+          if version.key >= "0.16.0":
+            echo "Testing $#... " % tags[0]
+            testImage(
+              "$#:$#" % [tagPrefix, tags[0]],
+              flavor
+            )
+            echo "Done!"
+
 
           echo "Pushing $#..." % tags[0]
           pushImage(tags, tagPrefix)

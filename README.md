@@ -4,7 +4,7 @@
 [![Join the chat at https://gitter.im/moigagoo/nimage](https://badges.gitter.im/moigagoo/nimage.svg)](https://gitter.im/moigagoo/nimage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![](https://images.microbadger.com/badges/image/nimlang/nim.svg)](http://microbadger.com/images/nimlang/nim "Get your own image badge on microbadger.com")
 
-![King's crown](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-withBackground.png)
+<img src=https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-crown.png width="250">
 
 Nim (formerly known as "Nimrod") is a statically typed, imperative programming language that tries to give the programmer ultimate power without compromises on runtime efficiency. This means it focuses on compile-time mechanisms in all their various forms.
 
@@ -24,7 +24,7 @@ So, all together:
 
 nimlang/nim = nimlang/nim:latest = nimlang/nim:0.16.0 = nimlang/nim:0.16.0-ubuntu =nimlang/nim:latest-ubuntu = nimlang/nim:0.16.0-regular = nimlang/nim:latest-regular = nimlang/nim:0.16.0-ubuntu-regular = nimlang/nim:latest-ubuntu-regular
 
-Phew, that's one ling list! Fortunately, unless you need a specific version of Nim, you'll probably need just `nimlang/nim`, `nimlang/nim:alpine`, or `nimlang/nim:onbuild`.
+Phew, that's one long list! Fortunately, unless you need a specific version of Nim, you'll probably need just `nimlang/nim`, `nimlang/nim:alpine`, or `nimlang/nim:onbuild`.
 
 ## Bases
 
