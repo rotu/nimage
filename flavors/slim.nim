@@ -6,7 +6,7 @@ FROM ubuntu
 #  for label, value in labels.items:
 LABEL $label="$value"
 #  end for
-RUN apt-get update; apt-get install -y wget xz-utils gcc
+RUN apt-get update; apt-get install -y wget xz-utils g++
 RUN wget http://nim-lang.org/download/nim-${version}.tar.xz; \
     tar xf nim-${version}.tar.xz; rm nim-${version}.tar.xz; \
     mv nim-${version} nim; \
