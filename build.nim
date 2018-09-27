@@ -97,7 +97,10 @@ proc testImage(image: string, flavor: string) =
 when isMainModule:
   const
     authors = """Konstantin Molchanov <moigagoo@live.com>, \
-                 Guilherme Thomazi Bonicontro <thomazi@linux.com>"""
+                 Guilherme Thomazi Bonicontro <thomazi@linux.com>, \
+                 Dominik Picheta <http://picheta.me>, \
+                 nigredo-tori <https://github.com/nigredo-tori>, \
+                 markprocess <https://github.com/markprocess>"""
     labels = {"authors": authors}
     tagPrefix = "nimlang/nim"
     flavors = ["slim", "regular", "onbuild"]
