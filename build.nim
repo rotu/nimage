@@ -1,9 +1,9 @@
 import os, parseopt, strutils, json
 import flavors / [slim, regular, onbuild]
 
-proc isDefault(props: JsonNode): bool = props.getOrDefault("default").getBVal
+proc isDefault(props: JsonNode): bool = props.getOrDefault("default").getBool
 
-proc isLatest(props: JsonNode): bool = props.getOrDefault("latest").getBVal
+proc isLatest(props: JsonNode): bool = props.getOrDefault("latest").getBool
 
 proc getTags(version, base: tuple[key: string, val: JsonNode],
              flavor: string): seq[string] =
