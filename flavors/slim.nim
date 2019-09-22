@@ -1,8 +1,7 @@
 #? stdtmpl
 #proc ubuntu*(version: string,
 #             labels: openarray[(string, string)] = {:}): string =
-#  result = ""
-FROM ubuntu
+FROM ubuntu:devel
 #  for label, value in labels.items:
 LABEL $label="$value"
 #  end for
@@ -16,13 +15,7 @@ RUN wget http://nim-lang.org/download/nim-${version}.tar.xz; \
 #
 #proc alpine*(version: string,
 #             labels: openarray[(string, string)] = {:}): string =
-#  result = ""
-# # These are known to have supported ssl library versions
-#  if version >= "0.17.0":
-FROM alpine:3.5
-#  else:
-FROM alpine:3.4
-#  end if
+FROM alpine:latest
 #  for label, value in labels.items:
 LABEL $label="$value"
 #  end for
