@@ -10,7 +10,7 @@ RUN wget http://nim-lang.org/download/nim-${version}.tar.xz; \
     tar xf nim-${version}.tar.xz; rm nim-${version}.tar.xz; \
     mv nim-${version} nim; \
     cd nim; sh build.sh; \
-    rm -r c_code tests doc; \
+    rm -r c_code tests; \
     ln -s `pwd`/bin/nim /bin/nim
 #end proc
 #
@@ -25,6 +25,6 @@ RUN mkdir -p /nim; \
     curl -sL "http://nim-lang.org/download/nim-${version}.tar.xz" \
     |tar xJ --strip-components=1 -C /nim; \
     cd /nim; sh build.sh; \
-    rm -r c_code tests doc; \
+    rm -r c_code tests; \
     ln -s `pwd`/bin/nim /bin/nim
 #end proc
