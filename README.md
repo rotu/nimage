@@ -1,6 +1,5 @@
 # Welcome to Nim
 [![Build Status](https://travis-ci.com/moigagoo/nimage.svg?branch=develop)](https://travis-ci.com/moigagoo/nimage)
-[![](https://images.microbadger.com/badges/image/nimlang/nim.svg)](http://microbadger.com/images/nimlang/nim "Get your own image badge on microbadger.com")
 
 ![](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-crown.png)
 
