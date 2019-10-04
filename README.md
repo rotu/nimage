@@ -53,7 +53,7 @@ $ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim nim c -r mya
 ## Compiling a *Static* Single File
 
 ```shell
-$ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:alpine nim c --passL:-static myapp.nim
+$ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:alpine nim c --passL:"-static -no-pie" myapp.nim
 ```
 
 ## Building a Nimble Package
