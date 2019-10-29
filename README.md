@@ -1,10 +1,9 @@
 # Welcome to Nim
 [![Build Status](https://travis-ci.com/moigagoo/nimage.svg?branch=develop)](https://travis-ci.com/moigagoo/nimage)
-[![](https://images.microbadger.com/badges/image/nimlang/nim.svg)](http://microbadger.com/images/nimlang/nim "Get your own image badge on microbadger.com")
 
 ![](https://raw.githubusercontent.com/nim-lang/assets/master/Art/logo-crown.png)
 
-Nim (formerly known as "Nimrod") is a statically typed, imperative programming language that tries to give the programmer ultimate power without compromises on runtime efficiency. This means it focuses on compile-time mechanisms in all their various forms.
+Nim is a statically typed, imperative programming language that tries to give the programmer ultimate power without compromises on runtime efficiency. This means it focuses on compile-time mechanisms in all their various forms.
 
 Beneath a nice infix/indentation based syntax with a powerful (AST based, hygienic) macro system lies a semantic model that supports a soft realtime GC on thread local heaps. Asynchronous message passing is used between threads,
 so no "stop the world" mechanism is necessary. An unsafe shared memory heap is also provided for the increased efficiency that results from that model.
@@ -54,7 +53,7 @@ $ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim nim c -r mya
 ## Compiling a *Static* Single File
 
 ```shell
-$ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:alpine nim c --passL:-static myapp.nim
+$ docker run --rm -v `pwd`:/usr/src/app -w /usr/src/app nimlang/nim:alpine nim c --passL:"-static -no-pie" myapp.nim
 ```
 
 ## Building a Nimble Package
