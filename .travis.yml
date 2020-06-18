@@ -15,6 +15,7 @@ before_deploy:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: ./build $TRAVIS_TAG
   on:
     tags: true
