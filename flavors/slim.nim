@@ -8,7 +8,7 @@ LABEL $label="$value"
 RUN apt-get update; apt-get install -y wget xz-utils g++; \
     wget -qO- https://deb.nodesource.com/setup_13.x | bash -; \
     apt-get install -y nodejs
-RUN wget http://nim-lang.org/download/nim-${version}.tar.xz; \
+RUN wget https://nim-lang.org/download/nim-${version}.tar.xz; \
     tar xf nim-${version}.tar.xz; rm nim-${version}.tar.xz; \
     mv nim-${version} nim; \
     cd nim; sh build.sh; \
@@ -24,7 +24,7 @@ LABEL $label="$value"
 #  end for
 RUN apk add --no-cache g++ curl tar xz nodejs
 RUN mkdir -p /nim; \
-    curl -sL "http://nim-lang.org/download/nim-${version}.tar.xz" \
+    curl -sL "https://nim-lang.org/download/nim-${version}.tar.xz" \
     |tar xJ --strip-components=1 -C /nim; \
     cd /nim; sh build.sh; \
     rm -r c_code tests; \
