@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Get Descriptions for tags
+      id: describe
+      run: |
+        echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        echo "::set-output name=git-describe::$(git describe)"
     - uses: docker/build-push-action@v3.0.0
       with:
         file: choosenim/Dockerfil
         tags: |
-          choosenim:$(date +%s)
-          choosenim:$(git describe)
+          choosenim:${{ steps.describe.outputs.date }}
+          choosenim:${{ steps.describe.outputs.git-describe }}
     
