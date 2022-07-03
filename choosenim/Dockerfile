@@ -8,8 +8,6 @@ RUN git clone https://github.com/openssl/openssl.git --depth 1 -b OpenSSL_1_1_1-
 RUN ./config --prefix=.. --openssldir=.. && make && make install
 
 WORKDIR /root/
-RUN pwd
-ld.so.conf.d/
-ENV LD_LIBRARY_PATH=/usr/local/ssl/lib:$LD_LIBRARY_PATH
+RUN echo "/usr/local/ssl/lib64" > /etc/ld.so.conf.d/openssl.conf
 RUN curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -y -d:nimDebugDlOpen
 ENV PATH=/root/.nimble/bin:$PATH
