@@ -11,5 +11,5 @@ RUN ls $OPENSSLLDIR/*
 RUN echo "$OPENSSLDIR/lib" > /etc/ld.so.conf.d/openssl.conf
 
 WORKDIR /root/
-RUN curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -y -d:nimDebugDlOpen
+RUN curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- -y -d:nimDebugDlOpen
 ENV PATH=/root/.nimble/bin:$PATH
