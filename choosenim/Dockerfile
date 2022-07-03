@@ -7,5 +7,7 @@ WORKDIR ./openssl
 RUN ./config --prefix=/usr && make && make install
 WORKDIR ~
 
+RUN pwd
+RUN find / -name 'libcrypto*'
 RUN curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- -y
 ENV PATH=/root/.nimble/bin:$PATH
