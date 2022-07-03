@@ -6,7 +6,7 @@ ENV OPENSSLDIR=/usr/local/ssl/
 RUN mkdir -p $OPENSSLDIR/src
 WORKDIR $OPENSSLDIR/src
 RUN git clone https://github.com/openssl/openssl.git --depth 1 -b OpenSSL_1_1_1-stable .
-RUN ./config --prefix=$OPENSSLDIR --openssdir=$OPENSSLDIR && make && make install
+RUN ./config --prefix=$OPENSSLDIR --openssldir=$OPENSSLDIR && make && make install
 RUN ls $OPENSSLLDIR/*
 RUN echo "$OPENSSLDIR/lib" > /etc/ld.so.conf.d/openssl.conf
 
